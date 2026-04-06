@@ -1,0 +1,138 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 4,
+  "reload_style_on_change": true,
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/scratchpad"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "mpd",
+    "pulseaudio",
+    "temperature",
+    "backlight",
+    "keyboard-state",
+    "battery",
+    "clock",
+    "network",
+    "tray",
+    "custom/power" 
+  ],
+  "hyprland/workspaces": { 
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{name}", 
+    "persistent_workspaces": {
+      "1": [], "2": [], "3": [], "4": [], "5": [],
+      "6": [], "7": [], "8": [], "9": [], "10": []
+    }
+  },
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+  "hyprland/mode": { 
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "hyprland/scratchpad": { 
+    "format": "{icon} {count}",
+    "show-empty": false,
+    "format-icons": [ "", "" ],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
+  },
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 5,
+    "consume-icons": { "on": " " },
+    "random-icons": { "off": "<span color=\"#f53c3c\"></span> ", "on": " " },
+    "repeat-icons": { "on": " " },
+    "single-icons": { "on": "1 " },
+    "state-icons": { "paused": "", "playing": "" },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": [ "", "", "" ]
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": [ "", "", "", "", "", "", "", "", "" ]
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": [ "", "", "", "", "" ]
+  },
+  "custom/power": {
+    "format": "⏻ ",
+    "tooltip": true,
+    "menu": "on-click",
+    "menu-file": "~/.config/waybar/power_menu.xml",
+    "menu-actions": {
+      "shutdown": "shutdown now",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate"
+    }
+  },
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon} | {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": "{icon} {format_source}",
+    "format-muted": "󰝟 | {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [ "", "", "" ]
+    },
+    "on-click": "pavucontrol" 
+  }
+}

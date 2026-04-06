@@ -1,0 +1,146 @@
+* {
+  font-family: "0xProto Nerd Font", "JetbrainsMono Nerd Font", "FontAwesome",
+    "Roboto", "Helvetica", "Arial", "sans-serif", "Noto Color Emoji", "monospace";
+  font-size: 13px;
+}
+
+/* --- BAR SURFACE (glass) --- */
+window#waybar {
+  background: rgba(20, 22, 28, 0.35);
+  color: rgba(255, 255, 255, 0.92);
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+    0 10px 26px rgba(0, 0, 0, 0.35);
+
+  margin: 6px 10px;
+  padding: 2px 6px;
+
+  transition-property: background-color;
+  transition-duration: .25s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#window,
+#workspaces {
+  margin: 0 4px;
+}
+
+.modules-left > widget:first-child > #workspaces { margin-left: 0; }
+.modules-right > widget:last-child > #workspaces { margin-right: 0; }
+
+/* --- DEFAULT MODULE "PILL" (gel) --- */
+#clock,
+#battery,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#scratchpad,
+#power-profiles-daemon,
+#mpd,
+#keyboard-state {
+  padding: 0 10px;
+  margin: 4px 3px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  background: rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 8px 18 rgba(255, 255, 255, 0.06),
+    inset 0 -2px 8 rgba(0, 0, 0, 0.28);
+}
+
+#keyboard-state {
+  padding: 0 6px;
+}
+
+button {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+button:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* --- WORKSPACES: gel stickers --- */
+#workspaces button {
+  padding: 0 8px;
+  margin: 4px 3px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.22);
+}
+
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+#workspaces button.active {
+  background: rgba(120, 180, 255, 0.22);
+  border: 1px solid rgba(160, 210, 255, 0.20);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.28);
+}
+
+#workspaces button.urgent {
+  background: rgba(235, 77, 75, 0.25);
+  border: 1px solid rgba(255, 180, 180, 0.18);
+}
+
+/* --- MODULE ACCENTS --- */
+@keyframes blink {
+  to {
+    background-color: rgba(255, 255, 255, 0.18);
+    color: rgba(0, 0, 0, 0.85);
+  }
+}
+#battery.critical:not(.charging) {
+  background: rgba(245, 60, 60, 0.24);
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#keyboard-state > label + label {
+  margin-left: 8px;
+}
+
+#clock { background: rgba(255, 0, 0, 0.20); }
+#battery { background: rgba(255, 255, 255, 0.16); }
+#battery.charging, #battery.plugged { background: rgba(46, 204, 113, 0.22); }
+#battery.critical:not(.charging) { background: rgba(245, 60, 60, 0.26); }
+#backlight { background: rgba(255, 220, 140, 0.18); }
+#keyboard-state { background: rgba(1, 225, 3, 0.18); }
+#tray { background: rgba(41, 128, 185, 0.16); }
+#mpd { background: rgba(102, 204, 153, 0.18); }
+#mpd.disconnected { background: rgba(245, 60, 60, 0.22); }
+#mpd.stopped { background: rgba(144, 177, 177, 0.18); }
+#mpd.paused { background: rgba(81, 163, 122, 0.20); }
+#network { background: rgba(41, 128, 185, 0.20); }
+#network.disconnected { background: rgba(245, 60, 60, 0.24); }
+#pulseaudio { background: rgba(241, 196, 15, 0.22); }
+#pulseaudio.muted { background: rgba(255, 0, 0, 0.48); }
