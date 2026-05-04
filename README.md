@@ -9,6 +9,8 @@ This repository archives user configuration files (dotfiles), custom shell scrip
 
 ## Dublin Core Metadata (5 Indexed Items)
 
+Curated Collection Scope Note: The following five items represent the primary curated objects within this repository collection. The additional configuration files and stylesheets present in the directory structure act as uncatalogued, secondary dependencies required for the full Wayland deployment sequence.
+
 **Item 1: Hyprland Master Configuration**
 * **Title:** Hyprland Master Configuration
 * **Environment Target:** Arch Linux, Wayland, Hyprland
